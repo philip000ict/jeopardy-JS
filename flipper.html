@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!--
+		Designed by Philip Barnes
+		https://philip000ict.github.io/
+		30/10/2024
+		<link id="theme" href="css/game.css" rel="stylesheet" type="text/css" media="screen" />
+    -->
+    <title>Memory</title>
+    <style type="text/css">
+		body{
+			width: 100vw;
+			height: 100vh;
+			background: black;
+
+		}
+		#wrapper{
+			margin:auto;
+			width: 95%;
+			height: 1000px;
+			background: powderblue;
+			border-width: 5px;
+			border-color: yellow;
+			border-radius: 10px;
+		}
+		h1{
+			text-align: center;
+		}
+		#grid-container{
+			display: grid;
+			grid-template-columns: auto auto auto auto auto;
+			gap: 10px;
+			margin:auto;
+			width: 95%;
+			padding:10px;
+			height: auto;
+			background: salmon;
+			border-width: 5px;
+			border-color: yellow;
+			border-radius: 10px;
+		}
+		.grid-item{
+			display: grid;
+			gap: 10px;
+			height: 150px;
+			width:200px;
+			margin:auto;
+			font-weight:bold;
+			font-size:36px;
+			text-align:center;
+			align-items: center;
+			color:white;
+			background: darkblue;
+			border-width: 5px;
+			border-color: yellow;
+			border-radius: 10px;
+		}
+    </style>
+
+</head>
+
+<body>
+    <div id="wrapper">
+		<div id = "header"><h1>Gems Memory Game-on</h1></div>
+			<div id="grid-container">
+				<div class="grid-item" id="A1" onclick="tileturn()">A1</div>
+				<div class="grid-item" id="A2" onclick="tileturn()">A2</div>
+				<div class="grid-item" id="A3" onclick="tileturn()">A3</div>
+				<div class="grid-item" id="A4" onclick="tileturn()">A4</div>
+				<div class="grid-item" id="A5" onclick="tileturn()">A5</div>
+
+				<div class="grid-item" id="B1" onclick="tileturn()">B1</div>
+				<div class="grid-item" id="B2" onclick="tileturn()">B2</div>
+				<div class="grid-item" id="B3" onclick="tileturn()">B3</div>
+				<div class="grid-item" id="B4" onclick="tileturn()">B4</div>
+				<div class="grid-item" id="B5" onclick="tileturn()">B5</div>
+
+				<div class="grid-item" id="C1" onclick="tileturn()">C1</div>
+				<div class="grid-item" id="C2" onclick="tileturn()">C2</div>
+				<div class="grid-item" id="C3" onclick="tileturn()">C3</div>
+				<div class="grid-item" id="C4" onclick="tileturn()">C4</div>
+				<div class="grid-item" id="C5" onclick="tileturn()">C5</div>
+
+				<div class="grid-item" id="D1" onclick="tileturn()">D1</div>
+				<div class="grid-item" id="D2" onclick="tileturn()">D2</div>
+				<div class="grid-item" id="D3" onclick="tileturn()">D3</div>
+				<div class="grid-item" id="D4" onclick="tileturn()">D4</div>
+				<div class="grid-item" id="D5" onclick="tileturn()">D5</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<script>
+	var gameTiles=[];
+	var answeTile;
+	var answerArray=[];
+	var questionArray=[];
+	questionArray.push(["A clear gem", "Diamond"]);
+	questionArray.push(["A red gem", "Ruby"]);
+	questionArray.push(["A green gem", "Emerald"]);
+	questionArray.push(["A blue gem", "Saphire"]);
+	questionArray.push(["A fiery gem", "Opal"]);
+
+	questionArray.push(["A clear stone", "Crystal"]);
+	questionArray.push(["A red stone", "Garnet"]);
+	questionArray.push(["A green stone", "Chalcedony"]);
+	questionArray.push(["A blue stone", "Lapis-Lazuli"]);
+	questionArray.push(["A golden stone", "Pyrites"]);
+
+	var tileArray = ["A1","A2","A3","A4","A5","B1","B2","B3","B4","B5","C1","C2","C3","C4","C5","D1","D2","D3","D4","D5"];
+
+	while(tileArray.length > 0) {
+			let tl = tileArray.length;
+			let ql = questionArray.length
+			let getTile1 = Math.floor(Math.random() * tl);
+			let getTile2 = Math.floor(Math.random() * (tl-1));
+			let getQuestion = Math.floor(Math.random() * ql);
+			//get tile from array
+			let tile1 = tileArray[getTile1];
+			//remove tile from array
+			tileArray.splice(getTile1,1);
+			//get tile from array
+			let tile2 = tileArray[getTile2];
+			//remove tile from array
+			tileArray.splice(getTile2,1)
+			let answerCouple = [tile1, tile2]
+			answerArray.push(answerCouple)
+			answerCouple = [tile2, tile1]
+			answerArray.push(answerCouple)
+			//get questions from array
+			let question1 = questionArray[getQuestion][0];
+			let answer1 = questionArray[getQuestion][1];
+			//remove question from array
+			questionArray.splice(getQuestion,1);
+			gameTiles.push([tile1,question1,tile2,answer1]);
+			document.getElementById(tile1).value = question1;
+			document.getElementById(tile2).value = answer1;
+		} 
+
+var click = 2;
+
+	function tileturn(){
+		let tileid = event.currentTarget.id
+		let tiletext = document.getElementById(tileid).innerText;
+		let domValue = document.getElementById(tileid).value
+		
+		document.getElementById(tileid).innerText=domValue;
+		console.log("domValue",domValue);
+		if(tileid == tiletext){document.getElementById(tileid).innerText = domValue}
+		else{document.getElementById(tileid).innerText = tileid}
+		
+		if (click == 2)
+		{
+			for(let i = 0; i < answerArray.length; i++){
+				if(answerArray[i][0] == tileid)
+				{ AnswerTile = answerArray[i][1];
+					console.log("AnswerTile ", AnswerTile );
+					break;
+				}
+			}
+			click =1;
+		}else{
+			if(tileid == AnswerTile){
+			alert("Winning Tile Choice");
+			}else{
+				console.log("Try Again")
+			}
+			click =2};
+	}
+</script>
+</body>
+<html>
