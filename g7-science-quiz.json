@@ -1,0 +1,301 @@
+const quizData = {
+    "quiz": {
+      "categories": [
+        {
+          "category_name": "Basic Chemistry",
+          "questions": [
+            {
+              "question": "What is the chemical symbol for oxygen?",
+              "answers": [
+                { "text": "O", "correct": true },
+                { "text": "C", "correct": false },
+                { "text": "H", "correct": false },
+                { "text": "N", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following is a non-metal element?",
+              "answers": [
+                { "text": "Sulfur", "correct": true },
+                { "text": "Copper", "correct": false },
+                { "text": "Iron", "correct": false },
+                { "text": "Gold", "correct": false }
+              ]
+            },
+            {
+              "question": "Which gas do plants use for photosynthesis?",
+              "answers": [
+                { "text": "Carbon dioxide", "correct": true },
+                { "text": "Oxygen", "correct": false },
+                { "text": "Nitrogen", "correct": false },
+                { "text": "Hydrogen", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the chemical formula for methane?",
+              "answers": [
+                { "text": "CH₄", "correct": true },
+                { "text": "CO₂", "correct": false },
+                { "text": "C₂H₆", "correct": false },
+                { "text": "H₂O", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following is an example of a chemical change?",
+              "answers": [
+                { "text": "Burning paper", "correct": true },
+                { "text": "Boiling water", "correct": false },
+                { "text": "Freezing water", "correct": false },
+                { "text": "Melting ice", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the product when hydrochloric acid reacts with sodium hydroxide?",
+              "answers": [
+                { "text": "Sodium chloride and water", "correct": true },
+                { "text": "Carbon dioxide and water", "correct": false },
+                { "text": "Sodium bicarbonate", "correct": false },
+                { "text": "Sulfuric acid", "correct": false }
+              ]
+            }
+          ]
+        },
+        {
+          "category_name": "Biology",
+          "questions": [
+            {
+              "question": "What is the basic unit of life?",
+              "answers": [
+                { "text": "Cell", "correct": true },
+                { "text": "Organ", "correct": false },
+                { "text": "Organism", "correct": false },
+                { "text": "Tissue", "correct": false }
+              ]
+            },
+            {
+              "question": "Which part of the plant is responsible for photosynthesis?",
+              "answers": [
+                { "text": "Leaf", "correct": true },
+                { "text": "Stem", "correct": false },
+                { "text": "Root", "correct": false },
+                { "text": "Flower", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the function of red blood cells?",
+              "answers": [
+                { "text": "Carry oxygen", "correct": true },
+                { "text": "Control body temperature", "correct": false },
+                { "text": "Fight infections", "correct": false },
+                { "text": "Produce hormones", "correct": false }
+              ]
+            },
+            {
+              "question": "Which organ in the human body pumps blood?",
+              "answers": [
+                { "text": "Heart", "correct": true },
+                { "text": "Brain", "correct": false },
+                { "text": "Lungs", "correct": false },
+                { "text": "Stomach", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the process by which plants make their own food?",
+              "answers": [
+                { "text": "Photosynthesis", "correct": true },
+                { "text": "Respiration", "correct": false },
+                { "text": "Germination", "correct": false },
+                { "text": "Transpiration", "correct": false }
+              ]
+            },
+            {
+              "question": "What organ is responsible for filtering waste from the blood?",
+              "answers": [
+                { "text": "Kidneys", "correct": true },
+                { "text": "Liver", "correct": false },
+                { "text": "Heart", "correct": false },
+                { "text": "Stomach", "correct": false }
+              ]
+            }
+          ]
+        },
+        {
+          "category_name": "Physics",
+          "questions": [
+            {
+              "question": "Which of the following is an example of a force?",
+              "answers": [
+                { "text": "Magnetism", "correct": true },
+                { "text": "Heat", "correct": false },
+                { "text": "Mass", "correct": false },
+                { "text": "Color", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the unit of force?",
+              "answers": [
+                { "text": "Newton", "correct": true },
+                { "text": "Watt", "correct": false },
+                { "text": "Joule", "correct": false },
+                { "text": "Volt", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of these is an example of potential energy?",
+              "answers": [
+                { "text": "A stretched spring", "correct": true },
+                { "text": "A rolling ball", "correct": false },
+                { "text": "A moving car", "correct": false },
+                { "text": "A lightbulb glowing", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the energy transformation in a light bulb?",
+              "answers": [
+                { "text": "Electrical to light and heat", "correct": true },
+                { "text": "Chemical to electrical", "correct": false },
+                { "text": "Heat to light", "correct": false },
+                { "text": "Kinetic to electrical", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the main source of Earth's energy?",
+              "answers": [
+                { "text": "Sun", "correct": true },
+                { "text": "Moon", "correct": false },
+                { "text": "Wind", "correct": false },
+                { "text": "Tidal waves", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following materials is the best conductor of electricity?",
+              "answers": [
+                { "text": "Copper", "correct": true },
+                { "text": "Rubber", "correct": false },
+                { "text": "Glass", "correct": false },
+                { "text": "Wood", "correct": false }
+              ]
+            }
+          ]
+        },
+        {
+          "category_name": "Earth and Space Science",
+          "questions": [
+            {
+              "question": "Which planet is closest to the Sun?",
+              "answers": [
+                { "text": "Mercury", "correct": true },
+                { "text": "Venus", "correct": false },
+                { "text": "Mars", "correct": false },
+                { "text": "Earth", "correct": false }
+              ]
+            },
+            {
+              "question": "What causes day and night on Earth?",
+              "answers": [
+                { "text": "The Earth's rotation", "correct": true },
+                { "text": "The moon's movement", "correct": false },
+                { "text": "The Earth's revolution", "correct": false },
+                { "text": "The Sun's rays", "correct": false }
+              ]
+            },
+            {
+              "question": "Which planet is known as the 'Red Planet'?",
+              "answers": [
+                { "text": "Mars", "correct": true },
+                { "text": "Venus", "correct": false },
+                { "text": "Jupiter", "correct": false },
+                { "text": "Saturn", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following is the largest planet in our Solar System?",
+              "answers": [
+                { "text": "Jupiter", "correct": true },
+                { "text": "Earth", "correct": false },
+                { "text": "Saturn", "correct": false },
+                { "text": "Neptune", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the name of the process by which the Earth's atmosphere traps heat from the Sun?",
+              "answers": [
+                { "text": "Greenhouse effect", "correct": true },
+                { "text": "Condensation", "correct": false },
+                { "text": "Evaporation", "correct": false },
+                { "text": "Precipitation", "correct": false }
+              ]
+            },
+            {
+              "question": "Which layer of the Earth is made up of solid rock?",
+              "answers": [
+                { "text": "Crust", "correct": true },
+                { "text": "Mantle", "correct": false },
+                { "text": "Outer core", "correct": false },
+                { "text": "Inner core", "correct": false }
+              ]
+            }
+          ]
+        },
+        {
+          "category_name": "Environmental Science",
+          "questions": [
+            {
+              "question": "Which of the following is a renewable energy source?",
+              "answers": [
+                { "text": "Wind", "correct": true },
+                { "text": "Coal", "correct": false },
+                { "text": "Natural Gas", "correct": false },
+                { "text": "Oil", "correct": false }
+              ]
+            },
+            {
+              "question": "What gas do plants absorb from the atmosphere to make food?",
+              "answers": [
+                { "text": "Carbon dioxide", "correct": true },
+                { "text": "Oxygen", "correct": false },
+                { "text": "Nitrogen", "correct": false },
+                { "text": "Hydrogen", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following is NOT a type of pollution?",
+              "answers": [
+                { "text": "Water pollution", "correct": false },
+                { "text": "Air pollution", "correct": false },
+                { "text": "Light pollution", "correct": false },
+                { "text": "Noise pollution", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of the following actions would help reduce your carbon footprint?",
+              "answers": [
+                { "text": "Riding a bike instead of driving", "correct": true },
+                { "text": "Using disposable plastic products", "correct": false },
+                { "text": "Leaving lights on when not in use", "correct": false },
+                { "text": "Buying products with excessive packaging", "correct": false }
+              ]
+            },
+            {
+              "question": "What is the process by which plants release water vapor into the atmosphere?",
+              "answers": [
+                { "text": "Transpiration", "correct": true },
+                { "text": "Evaporation", "correct": false },
+                { "text": "Condensation", "correct": false },
+                { "text": "Precipitation", "correct": false }
+              ]
+            },
+            {
+              "question": "Which of these actions helps to conserve water?",
+              "answers": [
+                { "text": "Fixing leaky taps", "correct": true },
+                { "text": "Leaving water running while brushing teeth", "correct": false },
+                { "text": "Watering plants in the middle of the day", "correct": false },
+                { "text": "Taking long showers", "correct": false }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
